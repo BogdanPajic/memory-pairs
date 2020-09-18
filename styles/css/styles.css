@@ -78,9 +78,7 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-.container .container-cards .card .card-inner .card-front {
-  background-image: URL("../../images/backgrounds/bkg.jpg");
-}
+
 .container .container-cards .card .card-inner .card-back {
   height: 100%;
   width: 100%;
@@ -93,44 +91,62 @@
   backface-visibility: hidden;
 }
 
+
 .rotated {
   transform: rotateY(-180deg);
 }
 
+.card-back, .card-front {
+  box-shadow: 3px 3px 10px;
+}
+
+.card-back {
+  border: 1px solid black;
+}
+
 #lemon {
   background-image: url('../../images/backgrounds/lemon.jpg');
+  background-size: cover;
 }
 
 #apple {
   background-image: url('../../images/backgrounds/apple.jpg');
+  background-size: cover;
 }
 
 #cherry {
   background-image: url('../../images/backgrounds/cherry.jpg');
+  background-size: cover;
 }
 
 #grapes {
   background-image: url('../../images/backgrounds/grapes.jpg');
+  background-size: cover;
 }
 
 #watermelon {
   background-image: url('../../images/backgrounds/watermelon.jpg');
+  background-size: cover;
 }
 
 #pear {
   background-image: url('../../images/backgrounds/pear.jpg');
+  background-size: cover;
 }
 
 #peach {
   background-image: url('../../images/backgrounds/peach.jpg');
+  background-size: cover;
 }
 
 #plum {
   background-image: url('../../images/backgrounds/plum.jpg');
+  background-size: cover;
 }
 
 #banana {
   background-image: url('../../images/backgrounds/banana.jpg');
+  background-size: cover;
 }
 
 .hidden {
@@ -141,6 +157,81 @@
   display: block;
   margin: 0 auto;
 }
+
+.front0 {
+  background-image: url('../../images/background-cards/1.jpg');
+}
+
+.front1 {
+  background-image: url('../../images/background-cards/2.jpg');
+}
+
+.front2 {
+  background-image: url('../../images/background-cards/3.jpg');
+}
+
+.front3 {
+  background-image: url('../../images/background-cards/4.jpg');
+}
+
+.front4 {
+  background-image: url('../../images/background-cards/5.jpg');
+}
+
+.front5 {
+  background-image: url('../../images/background-cards/6.jpg');
+}
+
+.front6 {
+  background-image: url('../../images/background-cards/7.jpg');
+}
+
+.front7 {
+  background-image: url('../../images/background-cards/8.jpg');
+}
+
+.front8 {
+  background-image: url('../../images/background-cards/9.jpg');
+}
+
+.front9 {
+  background-image: url('../../images/background-cards/10.jpg');
+}
+
+.front10 {
+  background-image: url('../../images/background-cards/11.jpg');
+}
+
+.front11 {
+  background-image: url('../../images/background-cards/12.jpg');
+}
+
+.front12 {
+  background-image: url('../../images/background-cards/13.jpg');
+}
+
+.front13 {
+  background-image: url('../../images/background-cards/14.jpg');
+}
+
+.front14 {
+  background-image: url('../../images/background-cards/15.jpg');
+}
+
+.front15 {
+  background-image: url('../../images/background-cards/16.jpg');
+}
+
+.front16 {
+  background-image: url('../../images/background-cards/17.jpg');
+}
+
+.front17 {
+  background-image: url('../../images/background-cards/18.jpg');
+}
+
+
+
 
 
 

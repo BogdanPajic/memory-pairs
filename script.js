@@ -29,7 +29,7 @@ function revealCard(number) {
 		cardSound.play();
 		counter++;
 		cardsInner[number].classList.add('rotated');
-		id1 = cardsBack[number].id
+		id1 = cardsBack[number].id;
 		number1 = number;
 		
 	} else if (counter == 1 && number != number1) {
