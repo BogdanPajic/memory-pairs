@@ -13,31 +13,46 @@
   grid-gap: 2em;
   grid-template-columns: 20vw 1fr;
 }
+
+.dashboard {
+  border-top-left-radius: 150px;
+  border-top-right-radius: 150px;
+  border-bottom-left-radius: 150px;
+  border-bottom-right-radius: 150px;
+  background-color:rgb(34, 34, 51);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
 .container .container-players {
+  margin-top: 30%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  border-radius: 3px;
-  background: rgba(250, 50, 50, 0.5);
+  justify-content: space-between;
+  
 }
-.container .container-players .play-again-btn {
-  width: 200px;
-  height: 200px;
+
+.play-again-btn {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 15%;
   border-radius: 50%;
-  line-height: 3em;
+  
   outline: none;
   border: none;
   background-image: URL("../../images/play-btn-bkg.png");
-  background-size: cover;
-  box-shadow: 0.2em 0.2em 0.2em rgba(255, 255, 255, 0.2);
-  opacity: 0.8;
+  background-size: contain;
+  
   font-size: 2em;
 }
-.container .container-players .play-again-btn:hover {
+.play-again-btn:hover {
   transform: scale(1.1);
 }
-.container .container-players .play-again-btn:active {
+.play-again-btn:active {
   box-shadow: none;
   transform: scale(1);
 }
@@ -104,50 +119,6 @@
   border: 1px solid black;
 }
 
-#lemon {
-  background-image: url('../../images/backgrounds/lemon.jpg');
-  background-size: cover;
-}
-
-#apple {
-  background-image: url('../../images/backgrounds/apple.jpg');
-  background-size: cover;
-}
-
-#cherry {
-  background-image: url('../../images/backgrounds/cherry.jpg');
-  background-size: cover;
-}
-
-#grapes {
-  background-image: url('../../images/backgrounds/grapes.jpg');
-  background-size: cover;
-}
-
-#watermelon {
-  background-image: url('../../images/backgrounds/watermelon.jpg');
-  background-size: cover;
-}
-
-#pear {
-  background-image: url('../../images/backgrounds/pear.jpg');
-  background-size: cover;
-}
-
-#peach {
-  background-image: url('../../images/backgrounds/peach.jpg');
-  background-size: cover;
-}
-
-#plum {
-  background-image: url('../../images/backgrounds/plum.jpg');
-  background-size: cover;
-}
-
-#banana {
-  background-image: url('../../images/backgrounds/banana.jpg');
-  background-size: cover;
-}
 
 .hidden {
   display: none;
@@ -155,7 +126,6 @@
 
 .show {
   display: block;
-  margin: 0 auto;
 }
 
 .front0 {
@@ -228,6 +198,15 @@
 
 .front17 {
   background-image: url('../../images/background-cards/18.jpg');
+}
+
+.announcement {
+  width: 100%;
+  text-align: center;
+  margin-top: 20%;
+  font-size: 80px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 

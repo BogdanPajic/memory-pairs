@@ -9,18 +9,22 @@ var color1, color2, nuber1, number2;
 var score1 = 0;
 var score2 = 0;
 var counter = 0;
-var counterPairs = 0;
 var colors = ['apple', 'apple', 'cherry', 'cherry', 'banana', 'banana', 'grapes', 'grapes', 'pear', 'pear', 'watermelon', 'watermelon', 'peach', 'peach', 'lemon', 'lemon', 'plum', 'plum'];
 var open = 0;
 var activePlayer = 1;
-var giphyEmbed = document.getElementById('giphy');
+var announcement = document.getElementById('announcement');
+var playButton = document.getElementById('play-again-btn');
+var container = document.getElementById('container');
 
 shuffleArray(colors);
 
 for (i = 0; i<cards.length; i++) {
+	cardsBack[i].style.backgroundImage = 'url(images/backgrounds/' + colors[i] + '.jpg)';
+}
+
+for (i = 0; i<cards.length; i++) {
 	cards[i].style.visibility = 'visible';
 	cardsBack[i].id = (colors[i]);
-	console.log(cardsBack[i].id);
 }
 
 function revealCard(number) {
@@ -29,17 +33,19 @@ function revealCard(number) {
 		cardSound.play();
 		counter++;
 		cardsInner[number].classList.add('rotated');
-		id1 = cardsBack[number].id;
+		string = cardsBack[number].style.backgroundImage;
+		img1 = string.substring(24, string.length - 6);
 		number1 = number;
 		
 	} else if (counter == 1 && number != number1) {
 		cardSound.play();
 		counter++;
 		cardsInner[number].classList.add('rotated');
-		id2 = cardsBack[number].id;
+		string = cardsBack[number].style.backgroundImage;
+		img2 = string.substring(24, string.length - 6);
 		number2 = number;
 
-		if (id1 !== id2) {
+		if (img1 !== img2) {
 			setTimeout(function() {
 				cardsInner[number1].classList.remove('rotated');
 				cardSound.play();
@@ -57,7 +63,7 @@ function revealCard(number) {
 					activePlayer = 1;
 				}
 			}, 1000);
-		} else if (id1 == id2) {
+		} else if (img1 == img2) {
 			setTimeout(function() {
 				if (score1 < 5 && score2 < 5){
 					success.play();
@@ -65,7 +71,6 @@ function revealCard(number) {
 				cards[number1].style.visibility = 'hidden';
 				cards[number2].style.visibility = 'hidden';
 				counter = 0;
-				counterPairs++;
 			}, 1000);
 
 			if (activePlayer == 1) {
@@ -82,13 +87,18 @@ function revealCard(number) {
 }
 
 function resetCards() {
+	announcement.classList.remove('show');
+	playButton.classList.remove('show');
+	container.style.backgroundImage = 'none';
 	shuffleArray(colors);
 	for (i = 0; i < cards.length; i++) {
 		cardsInner[i].classList.remove('rotated');
 	}
 	setTimeout(function() {
 		for (i = 0; i<cards.length; i++) {
-			cardsBack[i].style.backgroundColor = colors[i];
+			cardsBack[i].style.backgroundImage = 'url(images/backgrounds/' + colors[i] + '.jpg)';
+		}
+		for (var i = 0; i < cards.length; i++) {
 			cards[i].style.visibility = 'visible';
 		}
 	}, 500);
@@ -109,23 +119,26 @@ function resetCards() {
 }
 
 function winner() {
-	if (score1 > 4) {
+	if (score1 > 4 && score1 + score2 == 9) {
+		container.style.backgroundImage = "url('images/celebration.gif')";
 		winnerSound.play();
-		player_1_score.innerHTML = 'WINNER!';
+		announcement.innerHTML = 'The winner is number 1';    // jedna funkcija koja rradi isto ovo samo je parametar 1 ili 2
+		announcement.classList.add('show');
+		playButton.classList.add('show');
 		for (var i = 0; i < cards.length; i++) {
 			cards[i].style.visibility = 'hidden';
 		}
-		giphyEmbed.classList.remove('hidden');
-		giphyEmbed.classList.add('show');
-	} else if (score2 > 4) {
+	} else if (score2 > 4 && score1 + score2 == 9) {
+		container.style.backgroundImage = "url('images/celebration.gif')";
 		winnerSound.play();
-		player_2_score.innerHTML = 'WINNER!';
+		announcement.innerHTML = 'The winner is number 2';
+		announcement.classList.add('show');
+		playButton.classList.add('show');
 		for (var i = 0; i < cards.length; i++) {
 			cards[i].style.visibility = 'hidden';
 		}
-		giphyEmbed.classList.remove('hidden');
-		giphyEmbed.classList.add('show');
 	}
+	
 }
 
 
