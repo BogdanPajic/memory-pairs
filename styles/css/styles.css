@@ -24,33 +24,74 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 5px 5px 8px;
  
 }
-.container .container-players {
-  margin-top: 30%;
-  width: 100%;
+.container-player {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  
+  flex-direction: column;
+  height: 50%;
+  width: 100%;
+  font-size: 40px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.container-player .score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 150px;
+  color:rgb(34, 34, 51);
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: 100px;
+  font-weight: bolder;
+}
+
+.container-player p {
+  margin-top: 10%;
+  margin-bottom: -20%;
+}
+
+.player1 {
+  border-top-left-radius: 150px;
+  border-top-right-radius: 150px;
+}
+
+.player2 {
+  border-bottom-left-radius: 150px;
+  border-bottom-right-radius: 150px;
+
+}
+
+.inactivePlayer {
+  opacity: .05;
 }
 
 .play-again-btn {
-  width: 180px;
-  height: 180px;
-  margin-bottom: 15%;
-  border-radius: 50%;
-  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 230px;
+  height: 110px;
+  border-radius: 55px;
+  margin-top: 5%;  
   outline: none;
   border: none;
-  background-image: URL("../../images/play-btn-bkg.png");
-  background-size: contain;
-  
-  font-size: 2em;
+  color: white;
+  background-color: rgb(241, 46, 46);
+  font-size: 1.5em;
+  text-transform: uppercase;
+  padding: 5px;
+  opacity: .7;
 }
 .play-again-btn:hover {
-  transform: scale(1.1);
+  opacity: 1;
 }
 .play-again-btn:active {
   box-shadow: none;
@@ -200,13 +241,20 @@
   background-image: url('../../images/background-cards/18.jpg');
 }
 
-.announcement {
-  width: 100%;
-  text-align: center;
+.announcement p {
   margin-top: 20%;
-  font-size: 80px;
+  text-align: center;
   font-weight: bold;
   text-transform: uppercase;
+  animation-name: enlarge;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes enlarge {
+  0% {font-size: 60px;}
+  50% {font-size: 80px;}
+  100% {font-size: 60px;}
 }
 
 

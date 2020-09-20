@@ -9,15 +9,19 @@
 	<body>
 		<div class="container" id="container">
 			<div class="dashboard">
-				<div class="container-players">
-					<p id="player1" class="activePlayer">player 1</p>
+				<div class="container-player player1" id="player1">
+					<p> player 1</p>
 					<span id="player-1-score" class="score"> 0 </span>
-					<p id="player2">player 2</p>
+				</div>
+				<div class="container-player player2" id="player2">
+					<p>player 2</p>
 					<span id="player-2-score" class="score"> 0 </span>
 				</div>
 			</div>
-			<p id="announcement" class="hidden announcement"></p>
-			<button class="play-again-btn hidden" id="play-again-btn" onclick="resetCards()"></button>
+			<div class="announcement" id="announcement">
+				<p id="announcement-text"></p>
+				<button class="play-again-btn" id="play-again-btn" onclick="resetCards()"> play again</button>
+			</div>
 			<div class="container-cards" id="container-cards">
 				<div class="card" onclick="revealCard(0)">
 					<div class="card-inner">

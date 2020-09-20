@@ -13,10 +13,13 @@ var colors = ['apple', 'apple', 'cherry', 'cherry', 'banana', 'banana', 'grapes'
 var open = 0;
 var activePlayer = 1;
 var announcement = document.getElementById('announcement');
+var announcementText = document.getElementById('announcement-text');
 var playButton = document.getElementById('play-again-btn');
-var container = document.getElementById('container');
+var container = document.getElementById('container-cards');
 
 shuffleArray(colors);
+player2.classList.add('inactivePlayer');
+announcement.classList.add('hidden');
 
 for (i = 0; i<cards.length; i++) {
 	cardsBack[i].style.backgroundImage = 'url(images/backgrounds/' + colors[i] + '.jpg)';
@@ -53,19 +56,19 @@ function revealCard(number) {
 				cardSound.play();
 				counter = 0;
 				if (activePlayer == 1) {
-					player2.classList.add('activePlayer');
-					player1.classList.remove('activePlayer');
+					player1.classList.add('inactivePlayer');
+					player2.classList.remove('inactivePlayer');
 					activePlayer = 2;
 				} else {
 					activePlayer = 1;
-					player1.classList.add('activePlayer');
-					player2.classList.remove('activePlayer');
+					player1.classList.remove('inactivePlayer');
+					player2.classList.add('inactivePlayer');
 					activePlayer = 1;
 				}
 			}, 1000);
 		} else if (img1 == img2) {
 			setTimeout(function() {
-				if (score1 < 5 && score2 < 5){
+				if (score1 + score2 < 9){
 					success.play();
 				}
 				cards[number1].style.visibility = 'hidden';
@@ -87,9 +90,7 @@ function revealCard(number) {
 }
 
 function resetCards() {
-	announcement.classList.remove('show');
-	playButton.classList.remove('show');
-	container.style.backgroundImage = 'none';
+	announcement.classList.add('hidden');
 	shuffleArray(colors);
 	for (i = 0; i < cards.length; i++) {
 		cardsInner[i].classList.remove('rotated');
@@ -99,6 +100,7 @@ function resetCards() {
 			cardsBack[i].style.backgroundImage = 'url(images/backgrounds/' + colors[i] + '.jpg)';
 		}
 		for (var i = 0; i < cards.length; i++) {
+			container.style.display = 'grid';
 			cards[i].style.visibility = 'visible';
 		}
 	}, 500);
@@ -120,23 +122,19 @@ function resetCards() {
 
 function winner() {
 	if (score1 > 4 && score1 + score2 == 9) {
-		container.style.backgroundImage = "url('images/celebration.gif')";
+		announcement.style.backgroundImage = "url('images/celebration.gif')";
 		winnerSound.play();
-		announcement.innerHTML = 'The winner is number 1';    // jedna funkcija koja rradi isto ovo samo je parametar 1 ili 2
-		announcement.classList.add('show');
-		playButton.classList.add('show');
-		for (var i = 0; i < cards.length; i++) {
-			cards[i].style.visibility = 'hidden';
-		}
+		announcementText.innerHTML = 'The winner is number 1';    // jedna funkcija koja rradi isto ovo samo je parametar 1 ili 2
+		announcement.classList.remove('hidden');
+		container.style.display = 'none';
+		
 	} else if (score2 > 4 && score1 + score2 == 9) {
-		container.style.backgroundImage = "url('images/celebration.gif')";
+		announcement.style.backgroundImage = "url('images/celebration.gif')";
 		winnerSound.play();
-		announcement.innerHTML = 'The winner is number 2';
-		announcement.classList.add('show');
-		playButton.classList.add('show');
-		for (var i = 0; i < cards.length; i++) {
-			cards[i].style.visibility = 'hidden';
-		}
+		announcementText.innerHTML = 'The winner is number 2';
+		announcement.classList.remove('hidden');
+		container.style.display = 'none';
+		
 	}
 	
 }
