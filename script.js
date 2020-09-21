@@ -78,11 +78,15 @@ function revealCard(number) {
 
 			if (activePlayer == 1) {
 				score1++;
-				player_1_score.innerHTML = score1;
+				setTimeout(function() {
+					player_1_score.innerHTML = score1;	
+				}, 1000);
 				winner();
 			} else if (activePlayer == 2) {
-				score2++;
-				player_2_score.innerHTML = score2;
+				score2++;	
+				setTimeout(function() {
+					player_2_score.innerHTML = score2;
+				}, 1000);
 				winner();
 			}
 		}
@@ -121,21 +125,23 @@ function resetCards() {
 }
 
 function winner() {
-	if (score1 > 4 && score1 + score2 == 9) {
-		announcement.style.backgroundImage = "url('images/celebration.gif')";
-		winnerSound.play();
-		announcementText.innerHTML = 'The winner is number 1';    // jedna funkcija koja rradi isto ovo samo je parametar 1 ili 2
-		announcement.classList.remove('hidden');
-		container.style.display = 'none';
-		
-	} else if (score2 > 4 && score1 + score2 == 9) {
-		announcement.style.backgroundImage = "url('images/celebration.gif')";
-		winnerSound.play();
-		announcementText.innerHTML = 'The winner is number 2';
-		announcement.classList.remove('hidden');
-		container.style.display = 'none';
-		
-	}
+	setTimeout(function() {
+		if (score1 > 4 && score1 + score2 == 9) {
+			announcement.style.backgroundImage = "url('images/celebration.gif')";
+			winnerSound.play();
+			announcementText.src = 'images/announcement1.png';    // jedna funkcija koja rradi isto ovo samo je parametar 1 ili 2
+			announcement.classList.remove('hidden');
+			container.style.display = 'none';
+			
+		} else if (score2 > 4 && score1 + score2 == 9) {
+			announcement.style.backgroundImage = "url('images/celebration.gif')";
+			winnerSound.play();
+			announcementText.src = 'images/announcement2.png';
+			announcement.classList.remove('hidden');
+			container.style.display = 'none';
+			
+		}
+	}, 1000);
 	
 }
 
